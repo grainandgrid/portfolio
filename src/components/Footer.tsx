@@ -26,7 +26,7 @@ export function Footer() {
           </div>
           
           <div className="pt-12 border-t border-fg/10 flex justify-between items-center text-[10px] uppercase tracking-widest opacity-40">
-            <span>© 2024 Grain & Grid</span>
+            <span>© 2026 Grain & Grid</span>
             <span>All Rights Reserved</span>
           </div>
         </div>

@@ -18,6 +18,7 @@
   width: 100%;
   max-width: 360px;
   margin: 0 auto;
+  font-family: Helvetica, Arial, sans-serif;
 }
 
 .pc-card-wrapper.className {
@@ -153,22 +154,29 @@
   position: absolute;
   inset: 0;
   z-index: 0;
+  transition: filter 300ms ease, transform 300ms ease;
+}
+
+.pc-card-shell.active .avatar {
+  filter: blur(7px);
+  transform: scale(1.06);
 }
 
 .pc-user-info {
   position: absolute;
-  bottom: 24px;
-  left: 24px;
-  right: 24px;
+  inset: 0;
   z-index: 5;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 12px;
+  display: grid;
+  place-items: end;
+  padding: 20px;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 8%, rgba(0, 0, 0, 0.48) 100%);
+  backdrop-filter: blur(13px) saturate(120%);
+  -webkit-backdrop-filter: blur(13px) saturate(120%);
   opacity: 0;
-  transform: translateY(20px);
+  transform: translateY(12px);
   transition: all 300ms ease-out;
   pointer-events: none;
+  overflow: hidden;
 }
 
 .pc-card-shell.active .pc-user-info {
@@ -177,10 +185,25 @@
   pointer-events: auto;
 }
 
+.pc-user-info-panel {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 16px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0.1) 100%);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.28);
+  overflow: hidden;
+}
+
 .pc-user-details {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
+  min-width: 0;
+  flex: 1;
 }
 
 .pc-mini-avatar {
@@ -201,72 +224,56 @@
   display: flex;
   flex-direction: column;
   gap: 2px;
+  min-width: 0;
+  width: 100%;
 }
 
 .pc-handle {
-  font-size: 12px;
+  font-size: 13px;
   color: rgba(255, 255, 255, 0.8);
-  font-weight: 500;
+  font-weight: 600;
+  line-height: 1.2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .pc-status {
-  font-size: 11px;
-  color: rgba(255, 255, 255, 0.6);
-}
-
-.pc-contact-btn {
-  padding: 8px 16px;
-  border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  background: rgba(0, 0, 0, 0.5);
-  color: white;
   font-size: 12px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  cursor: pointer;
-  transition: all 200ms ease-out;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.2;
+  overflow: hidden;
+  text-overflow: ellipsis;
   white-space: nowrap;
-  user-select: none;
 }
 
-.pc-contact-btn:hover {
-  background: rgba(255, 255, 255, 0.2);
-  border-color: rgba(255, 255, 255, 0.5);
-  transform: scale(1.05);
-}
-
-.pc-contact-btn:active {
-  transform: scale(0.98);
-}
-
-/* Details section */
-.pc-details {
+.pc-user-meta {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all 300ms ease-out;
+  gap: 6px;
+  min-width: 0;
 }
 
-.pc-card-shell.active .pc-details {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.pc-details h3 {
-  font-size: 28px;
+.pc-user-meta h3 {
+  font-size: 24px;
   font-weight: 700;
   color: white;
   margin: 0;
-  line-height: 1.2;
+  line-height: 1.15;
+  font-family: Helvetica, Arial, sans-serif;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.pc-details p {
+.pc-user-meta p {
   font-size: 14px;
   color: rgba(255, 255, 255, 0.8);
   margin: 0;
+  font-family: Helvetica, Arial, sans-serif;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 /* Inner gradient overlay */
@@ -317,16 +324,19 @@
   }
 
   .pc-user-info {
-    bottom: 16px;
-    left: 16px;
-    right: 16px;
+    padding: 14px;
   }
 
-  .pc-details h3 {
-    font-size: 22px;
+  .pc-user-info-panel {
+    gap: 12px;
+    padding: 14px;
   }
 
-  .pc-details p {
+  .pc-user-meta h3 {
+    font-size: 20px;
+  }
+
+  .pc-user-meta p {
     font-size: 12px;
   }
 }

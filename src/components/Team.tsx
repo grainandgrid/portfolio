@@ -5,7 +5,6 @@ type TeamProfile = {
   title: string;
   handle: string;
   status: string;
-  contactText: string;
   avatarUrl: string;
   behindGlowColor: string;
   innerGradient: string;
@@ -17,7 +16,6 @@ const TEAM_PROFILES: TeamProfile[] = [
     title: 'CEO',
     handle: 'sarkareshaan@gmail.com',
     status: 'Online',
-    contactText: 'Contact CEO',
     avatarUrl: '/assets/team/eshaan.jpg',
     behindGlowColor: 'hsla(18, 100%, 70%, 0.55)',
     innerGradient: 'linear-gradient(145deg, hsla(18, 40%, 45%, 0.55) 0%, hsla(250, 60%, 70%, 0.27) 100%)',
@@ -27,18 +25,16 @@ const TEAM_PROFILES: TeamProfile[] = [
     title: 'COO',
     handle: 'souryapaul2007@gmail.com',
     status: 'Online',
-    contactText: 'Contact COO',
     avatarUrl: '/assets/team/sourya.jpg',
     behindGlowColor: 'hsla(180, 85%, 65%, 0.45)',
     innerGradient: 'linear-gradient(145deg, hsla(182, 45%, 36%, 0.52) 0%, hsla(224, 60%, 64%, 0.24) 100%)',
   },
   {
-    name: 'Profile 3',
+    name: 'Dwijagro Sengupta',
     title: 'CFO',
-    handle: 'grain.cfo',
+    handle: 'dwijagrosengupta@gmail.com',
     status: 'Online',
-    contactText: 'Contact CFO',
-    avatarUrl: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=1200&q=80',
+    avatarUrl: '/assets/team/dwijagro.jpg',
     behindGlowColor: 'hsla(42, 95%, 65%, 0.45)',
     innerGradient: 'linear-gradient(145deg, hsla(42, 58%, 43%, 0.52) 0%, hsla(28, 78%, 63%, 0.24) 100%)',
   },
@@ -67,15 +63,10 @@ export function Team() {
               title={profile.title}
               handle={profile.handle}
               status={profile.status}
-              contactText={profile.contactText}
               avatarUrl={profile.avatarUrl}
               showUserInfo
               enableTilt
               enableMobileTilt
-              onContactClick={() => {
-                if (!profile.handle.includes('@')) return;
-                window.location.href = `mailto:${profile.handle}`;
-              }}
               behindGlowColor={profile.behindGlowColor}
               iconUrl="/assets/demo/iconpattern.svg"
               behindGlowEnabled
